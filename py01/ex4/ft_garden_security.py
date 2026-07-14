@@ -33,7 +33,7 @@ if __name__ == "__main__":
     print("=== Garden Security System ===")
     print(f"Plant created: {rose.show()}\n")
 
-    rose.set_height(25)
+    rose.set_height(25.0)
     print(f"Height update: {rose.get_height()}cm")
     rose.set_age(30)
     print(f"Age update: {rose.get_age()} days")
