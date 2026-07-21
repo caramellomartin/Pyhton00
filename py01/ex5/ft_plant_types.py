@@ -69,17 +69,43 @@ class Tree(Plant):
         base_text = super().show()
         return f"{base_text}\n Trunk diameter: {self._trunk_diameter}cm"
 
+class Vegetable(Plant):
+    def __init__(self, name: str, height: float, curr_age: int, harvest_season: str) -> None:
+        super().__init__(name, height, curr_age)
+        self._harvest_season: str = harvest_season
+        self._nutritional_value: int = 0
+
+    def age(self) -> None:
+        super().age()
+        self._nutritional_value += 1
+
+    def grow(self, value: float) -> None:
+        super().grow(value)
+
+    def show(self) -> str:
+        base_text = super().show()
+        return f"{base_text}\n Harvest season: {self._harvest_season}\n Nutritional value: {self._nutritional_value}"
+
 if __name__ == "__main__":
-    rose: Plant = Plant("Rose", 15.0, 10)
+    rose: Flower = Flower("Rose", 15.0, 10, "red")
+    oak: Tree = Tree("Oak", 200.0, 365, 5.0)
+    tomato: Vegetable = Vegetable("Tomato", 5.0, 10, "April")
 
-    print("=== Garden Security System ===")
-    print(f"Plant created: {rose.show()}\n")
+    print("=== Garden Plant Types ===")
+    print(f"=== Flower")
+    print(f"{rose.show()}")
+    rose.bloom()
+    print(f"{rose.show()}")
 
-    rose.set_height(25.0)
-    print(f"Height update: {rose.get_height()}cm")
-    rose.set_age(30)
-    print(f"Age update: {rose.get_age()} days")
-    rose.set_height(-25)
-    rose.set_age(-30)
+    print(f"\n=== Tree")
+    print(f"{oak.show()}")
+    oak.produce_shade()
 
-    print(f"\nCurrent state: {rose.show()}")
+    print(f"\n=== Vegetable")
+    print(f"{tomato.show()}")
+    print("[make tomato grow and age for 20 days]")
+    for _ in range(20):
+        tomato.age()
+        tomato.grow(2.1)
+    print(f"{tomato.show()}")
+
