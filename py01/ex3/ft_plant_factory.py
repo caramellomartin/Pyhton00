@@ -5,8 +5,10 @@ class Plant:
         self.name: str = name
         self.height: float = height
         self.curr_age: int = curr_age
+
     def show(self) -> str:
         return f"{self.name}: {self.height}cm, {self.curr_age} days old"
+
 
 if __name__ == "__main__":
     rose: Plant = Plant("Rose", 25.0, 30)

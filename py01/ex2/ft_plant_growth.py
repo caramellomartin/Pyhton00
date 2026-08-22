@@ -1,17 +1,23 @@
 #!/usr/bin/env python3
 
 class Plant:
+    def __init__(self) -> None:
+        self.name: str = ""
+        self.height: float = 0.0
+        self.curr_age: int = 0
+
     def show(self) -> None:
         print(f"{self.name}: {self.height}cm, {self.curr_age} days old")
+
     def age(self) -> None:
         self.curr_age += 1
+
     def grow(self, value: float) -> None:
         self.height = round(self.height + value, 1)
 
+
 if __name__ == "__main__":
     rose = Plant()
-    sunflower = Plant()
-    cactus = Plant()
 
     rose.name = "Rose"
     rose.height = 25.0
