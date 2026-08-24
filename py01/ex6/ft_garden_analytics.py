@@ -116,7 +116,7 @@ class Vegetable(Plant):
         self._nutritional_value: int = 0
 
     def age(self, days: int = 1) -> None:
-        super().age()
+        super().age(days)
         self._nutritional_value += days
 
     def grow(self, value: float) -> None:
