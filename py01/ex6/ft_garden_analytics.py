@@ -43,8 +43,8 @@ class Plant:
         self._stats._show_calls += 1
         return f"{self._name}: {self._height}cm, {self._curr_age} days old"
 
-    def age(self) -> None:
-        self._curr_age += 1
+    def age(self, days: int = 1) -> None:
+        self._curr_age += days
         self._stats._age_calls += 1
 
     def grow(self, value: float) -> None:
@@ -70,7 +70,6 @@ class Flower(Plant):
         self._bloom_plant: bool = False
 
     def bloom(self) -> None:
-        #print(f"[asking the {self._name} to bloom]")
         self._bloom_plant = True
 
     def show(self) -> str:
@@ -90,7 +89,7 @@ class Tree(Plant):
 
         def display(self) -> None:
             super().display()
-            print(f"{self._shade_calls} shade")
+            print(f" {self._shade_calls} shade")
 
     def __init__(self, name: str, height: float,
                  curr_age: int, trunk_diameter: float) -> None:
@@ -116,9 +115,9 @@ class Vegetable(Plant):
         self._harvest_season: str = harvest_season
         self._nutritional_value: int = 0
 
-    def age(self) -> None:
+    def age(self, days: int = 1) -> None:
         super().age()
-        self._nutritional_value += 1
+        self._nutritional_value += days
 
     def grow(self, value: float) -> None:
         super().grow(value)
@@ -175,7 +174,7 @@ if __name__ == "__main__":
     print(f"{sunflower.show()}")
     print("[make sunflower grow, age and bloom]")
     sunflower.grow(30.0)
-    sunflower.age()
+    sunflower.age(20)
     sunflower.bloom()
     print(f"{sunflower.show()}")
     display_statistics(sunflower)
