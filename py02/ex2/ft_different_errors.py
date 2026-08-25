@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 
 def garden_operations(operation_number: int) -> None:
     match operation_number:
