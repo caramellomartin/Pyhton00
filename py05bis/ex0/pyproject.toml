@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "lab_env"
+version = "0.1.0"
+description = "Sealed laboratory"
+authors = ["marcaram <marcaram@student.42.fr>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = ">=2.1.0"
+numpy = ">=1.25.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
